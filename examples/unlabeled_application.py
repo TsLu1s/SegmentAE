@@ -1,10 +1,10 @@
-from SegmentAE.anomaly_detection import (SegmentAE,
+from segmentae.anomaly_detection import (SegmentAE,
                                          Preprocessing,
                                          Clustering,
                                          DenseAutoencoder,
                                          #BatchNormAutoencoder,
                                          )
-from SegmentAE.data_sources.examples import load_dataset
+from segmentae.data_sources.examples import load_dataset
 import tensorflow as tf
 
 ############################################################################################
