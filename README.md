@@ -65,12 +65,12 @@ Clustering forms the backbone of the `SegmentAE` framework, providing the capabi
 The core of the `SegmentAE` framework is its anomaly detection optimization module, which employs advanced methods such as tabular autoencoders to identify anomalies. Autoencoders are neural networks designed to learn efficient representations of input data, enabling the detection of anomalies by measuring reconstruction errors. This framework includes 2 baseline autoencoder algorithms (`Dense` & `Batch Norm`) for user application that allow the customization of each, including the network architecture, training epochs, activation layers and others.
 
 Furthermore, it's a main feature option for you to build your own autoencoder model (`Keras` based) and integrate it into the `SegmentAE` pipeline -> 
-<a href="[LINK EXAMPLE]" style="text-decoration:none;">
+<a href="https://github.com/TsLu1s/SegmentAE/blob/main/examples/basic_model.py" style="text-decoration:none;">
     <img src="https://img.shields.io/badge/Custom%20Model-blue?style=for-the-badge&logo=readme&logoColor=white" alt="Custom Model">
 </a>
 
 Also, application example for totally unlabeled data available here -> 
-<a href="[LINK EXAMPLE]" style="text-decoration:none;">
+<a href="https://github.com/TsLu1s/SegmentAE/blob/main/examples/unlabeled_application.py" style="text-decoration:none;">
     <img src="https://img.shields.io/badge/Unlabeled%20Example-blue?style=for-the-badge&logo=readme&logoColor=white" alt="Unlabeled Example">
 </a>
 
@@ -165,7 +165,7 @@ predictions = sg.detections(input_data = X_future_data,
 
 ### Performance Evaluation
 
-`SegmentAE` employs a rigorous evaluation methodology to assess the performance of its anomaly detection capabilities. This includes product based strategies tailored for extensive experiments ensembling for detecting the best combination of autoencoder and clustering model. Key performance of different reconstruction error threshold ratios are also analysed in order to lay out a comprehensive evaluation of the model's effectiveness and improvements for each tested combination -> <a href="[LINK EXAMPLE]" style="text-decoration:none;">
+`SegmentAE` employs a rigorous evaluation methodology to assess the performance of its anomaly detection capabilities. This includes product based strategies tailored for extensive experiments ensembling for detecting the best combination of autoencoder and clustering model. Key performance of different reconstruction error threshold ratios are also analysed in order to lay out a comprehensive evaluation of the model's effectiveness and improvements for each tested combination -> <a href="https://github.com/TsLu1s/SegmentAE/blob/main/examples/evaluate_combinations.py" style="text-decoration:none;">
     <img src="https://img.shields.io/badge/Combinations%20Evaluation-blue?style=for-the-badge&logo=readme&logoColor=white" alt="Combinations Evaluation">
 </a>
 ## License
