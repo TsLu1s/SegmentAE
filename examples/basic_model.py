@@ -1,9 +1,9 @@
 import pandas as pd
-from SegmentAE.anomaly_detection import (SegmentAE,
+from segmentae.anomaly_detection import (SegmentAE,
                                          Preprocessing,
                                          Clustering
                                          )
-from SegmentAE.data_sources.examples import load_dataset
+from segmentae.data_sources.examples import load_dataset
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
