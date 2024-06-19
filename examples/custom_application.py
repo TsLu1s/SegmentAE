@@ -1,6 +1,6 @@
 import pandas as pd
-from SegmentAE.data_sources.examples import load_dataset
-from SegmentAE.anomaly_detection import (SegmentAE,
+from segmentae.data_sources.examples import load_dataset
+from segmentae.anomaly_detection import (SegmentAE,
                                          Preprocessing,
                                          Clustering,
                                          DenseAutoencoder,
