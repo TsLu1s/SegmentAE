@@ -32,8 +32,6 @@ Major frameworks used to built this project:
     
 Binary installer for the latest released version is available at the Python Package Index [(PyPI)](https://pypi.org/project/segmentae/).   
 
-The source code is currently hosted on GitHub at: https://github.com/TsLu1s/SegmentAE
-
 ## Installation  
 
 To install this package from Pypi repository run the following command:
@@ -80,8 +78,8 @@ To demonstrate the usage of `SegmentAE`, a DenseAutoencoder is trained and integ
 
 ```py
 import pandas as pd
-from SegmentAE.data_sources.examples import load_dataset
-from SegmentAE.anomaly_detection import (SegmentAE,
+from segmentae.data_sources.examples import load_dataset
+from segmentae.anomaly_detection import (SegmentAE,
                                          Preprocessing,
                                          Clustering,
                                          DenseAutoencoder, 
@@ -163,7 +161,7 @@ predictions = sg.detections(input_data = X_future_data,
 
 ```
 
-### Performance Evaluation
+### 👉 Performance Evaluation
 
 `SegmentAE` employs a rigorous evaluation methodology to assess the performance of its anomaly detection capabilities. This includes product based strategies tailored for extensive experiments ensembling for detecting the best combination of autoencoder and clustering model. Key performance of different reconstruction error threshold ratios are also analysed in order to lay out a comprehensive evaluation of the model's effectiveness and improvements for each tested combination -> <a href="https://github.com/TsLu1s/SegmentAE/blob/main/examples/evaluate_combinations.py" style="text-decoration:none;">
     <img src="https://img.shields.io/badge/Combinations%20Evaluation-blue?style=for-the-badge&logo=readme&logoColor=white" alt="Combinations Evaluation">
