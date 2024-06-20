@@ -108,14 +108,6 @@ for n_clusters, cluster, autoenc in product([1,2,3,4],
     n+=1
 global_results = pd.concat(list_metrics,axis=0) ### All configurations performance
 
-############################################################################################
-### Anomaly Detection Predictions
-
-best_ratio = global_results['Threshold Ratio'].iloc[0]
-
-predictions = sg.detections(input_data = X_test,
-                            threshold_ratio = best_ratio)
-
 
 
 
