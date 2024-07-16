@@ -108,5 +108,7 @@ global_results = pd.concat([sg.evaluation(input_data = X_test,
 ############################################################################################
 ### Anomaly Detection Predictions
 
+best_ratio = global_results.sort_values(by="Accuracy", ascending=False).iloc[0]["Threshold Ratio"]
+
 predictions = sg.detections(input_data = X_future_data,
-                            threshold_ratio = 2.0)
+                            threshold_ratio = best_ratio)
