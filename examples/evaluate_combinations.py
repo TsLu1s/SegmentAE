@@ -11,8 +11,10 @@ import tensorflow as tf
 ############################################################################################
 ### Data Loading
 
-train, test, target = load_dataset(dataset_selection = 'german_credit_card', 
-                                   split_ratio = 0.75) # Options | 'german_credit_card', 'network_intrusions', 'default_credit_card'                  
+train, test, target = load_dataset(dataset_selection = 'shuttle_148', 
+                                   split_ratio = 0.75) # Options | 'network_intrusions', 'default_credit_card', 
+                                                       #         | 'htru2_dataset', 'shuttle_148'  
+         
 
 X_train = train.drop(columns=[target]).copy()
 X_test = test.drop(columns=[target]).copy()

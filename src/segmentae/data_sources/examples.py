@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from ucimlrepo import fetch_ucirepo 
 from typing import Optional
 
-def load_dataset(dataset_selection : str = 'injection_quality',
+def load_dataset(dataset_selection : str = 'network_intrusions',
                  split_ratio : float = 0.8,
                  random_state : Optional[int] = 5):       
     """
@@ -19,33 +19,9 @@ def load_dataset(dataset_selection : str = 'injection_quality',
         test (DataFrame): Testing dataset.
         target (str): Name of the target variable. (used for validation)
     """
-    # Handle different dataset selections
-    if dataset_selection == "german_credit_card":
-        # Source : https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data
-        
-        # fetch dataset 
-        info = fetch_ucirepo(id=148) 
-        
-        # Concatenate features and targets
-        data = pd.concat([info.data.features.reset_index(drop=True),
-                          info.data.targets.reset_index(drop=True) ],axis=1)
-        
-        # Adjust target values to binary
-        target, sr = 'class', 0.75
-        data[target] = data[target].replace({1: 0, 2: 1, 3: 1, 4: 1, 5: 1})
-        data[target] = data[target].astype(int)
-        
-        # Separate normal and fraud instances
-        normal, fraud = data[data[target] == 0], data[data[target] == 1]
-        
-        # Split normal instances into training and testing sets
-        train, test = train_test_split(normal, train_size=split_ratio, random_state=random_state)
-        
-        # Combine testing set with fraud instances and shuffle
-        test = pd.concat([test,fraud])
-        test = test.sample(frac=1, random_state=42)
     
-    elif dataset_selection == "default_credit_card":
+    # Handle different dataset selections
+    if dataset_selection == "default_credit_card":
         # Source : https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients
         
         # fetch dataset 
@@ -91,7 +67,7 @@ def load_dataset(dataset_selection : str = 'injection_quality',
         data = pd.read_csv(url, compression='gzip', header=None, names=column_names)
 
         # Adjust target labels to binary
-        data.label=data.label.apply(lambda x: 0 if x == 'normal.' else 1)
+        data.label = data.label.apply(lambda x: 0 if x == 'normal.' else 1)
         
         # Define proportions for sampling
         proportions = {
@@ -122,6 +98,55 @@ def load_dataset(dataset_selection : str = 'injection_quality',
         test = pd.concat([test,intrusions])
         test = test.sample(frac=1, random_state=42)
     
+    elif dataset_selection == "shuttle_148":
+        # Source : https://archive.ics.uci.edu/dataset/148/statlog+shuttle
+        
+        # fetch dataset 
+        info = fetch_ucirepo(id=148) 
+        
+        # Concatenate features and targets
+        data = pd.concat([info.data.features.reset_index(drop=True),
+                          info.data.targets.reset_index(drop=True) ],axis=1)
+        
+        # Adjust target values to binary
+        target, sr = 'class', 0.75
+        data[target] = data[target].replace({1: 0, 2: 1, 3: 1, 4: 1, 5: 1, 6:1, 7:1})
+        data[target] = data[target].astype(int)
+        
+        # Separate normal and fraud instances
+        normal, fraud = data[data[target] == 0], data[data[target] == 1]
+        
+        # Split normal instances into training and testing sets
+        train, test = train_test_split(normal, train_size=split_ratio, random_state=random_state)
+        
+        # Combine testing set with fraud instances and shuffle
+        test = pd.concat([test,fraud])
+        test = test.sample(frac=1, random_state=42)
+    
+    elif dataset_selection == "htru2_dataset":
+        # Source : https://archive.ics.uci.edu/dataset/372/htru2
+        
+        # fetch dataset 
+        info = fetch_ucirepo(id=372) 
+        
+        # Concatenate features and targets
+        data = pd.concat([info.data.features.reset_index(drop=True),
+                          info.data.targets.reset_index(drop=True) ],axis=1)
+        target, sr ='class', 0.9
+        
+        # Cast target values to integer
+        data[target] = data[target].astype(int)
+        
+        # Separate normal and fraud instances
+        normal, fraud = data[data[target] == 0], data[data[target] == 1]
+        
+        # Split normal instances into training and testing sets
+        train, test = train_test_split(normal, train_size=split_ratio, random_state=random_state)
+        
+        # Combine testing set with fraud instances and shuffle
+        test = pd.concat([test,fraud])
+        test = test.sample(frac=1, random_state=42)
+        
     # Reset index for consistency
     train, test = train.reset_index(drop=True), test.reset_index(drop=True)
     
@@ -132,3 +157,4 @@ def load_dataset(dataset_selection : str = 'injection_quality',
            **{"Anomalies [1]" if key == 1 else "Normal [0]": value for key, value in test[target].value_counts().to_dict().items()}})
     
     return train, test, target
+

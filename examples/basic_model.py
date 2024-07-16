@@ -13,7 +13,8 @@ from tensorflow.keras.layers import Dense
 ### Data Loading
 
 train, test, target = load_dataset(dataset_selection = 'network_intrusions', 
-                                   split_ratio = 0.75) # Options | 'german_credit_card', 'network_intrusions', 'default_credit_card'      
+                                   split_ratio = 0.75) # Options | 'network_intrusions', 'default_credit_card', 
+                                                       #         | 'htru2_dataset', 'shuttle_148'
 
 test, future_data = train_test_split(test, train_size = 0.9, random_state = 5)
 

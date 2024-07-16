@@ -12,8 +12,9 @@ import tensorflow as tf
 ############################################################################################
 ### Data Loading
 
-train, test, target = load_dataset(dataset_selection = 'german_credit_card', 
-                                   split_ratio = 0.75) # Options | 'german_credit_card', 'network_intrusions', 'default_credit_card'              
+train, test, target = load_dataset(dataset_selection = 'network_intrusions', 
+                                   split_ratio = 0.75) # Options | 'network_intrusions', 'default_credit_card', 
+                                                       #         | 'htru2_dataset', 'shuttle_148'
 
 test, future_data = train_test_split(test, train_size = 0.9, random_state = 5)
 
@@ -29,7 +30,7 @@ X_future_data = future_data.drop(columns=[target]).copy() # future_data[target].
 ############################################################################################
 ### Preprocessing
 
-pr = Preprocessing(encoder = None,          # Options | "IFrequencyEncoder", "LabelEncoder", "OneHotEncoder", None
+pr = Preprocessing(encoder = "IFrequencyEncoder",          # Options | "IFrequencyEncoder", "LabelEncoder", "OneHotEncoder", None
                    scaler = "MinMaxScaler", # Options | "MinMaxScaler", "StandardScaler", "RobustScaler", None
                    imputer = None)          # Options | "Simple","RandomForest","ExtraTrees","GBR","KNN","XGBoost","Lightgbm","Catboost", None
 

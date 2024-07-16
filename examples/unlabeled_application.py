@@ -11,7 +11,8 @@ import tensorflow as tf
 ### Data Loading
 
 train, future_data, target = load_dataset(dataset_selection = 'network_intrusions', 
-                                          split_ratio = 0.75) # Options | 'german_credit_card', 'network_intrusions', 'default_credit_card'            
+                                          split_ratio = 0.75) # Options | 'network_intrusions', 'default_credit_card', 
+                                                              #         | 'htru2_dataset', 'shuttle_148'           
 
 train, future_data = train.reset_index(drop=True), future_data.reset_index(drop=True)
 
