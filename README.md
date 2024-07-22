@@ -59,7 +59,7 @@ Clustering forms the backbone of the `SegmentAE` framework, providing the capabi
 - **Clustering Algorithms**: Support and customization for a variety of algorithm options such as `K-Means`, `MiniBatchKMeans`, `GaussianMixture`, and `Agglomerative` clustering, allowing the framework to adapt to different data structures and distribution patterns.
 
 ### 3. Anomaly Detection - Baseline Autoencoders
-´
+
 The core of the `SegmentAE` framework is its anomaly detection optimization module, which employs advanced methods such as tabular autoencoders to identify anomalies. Autoencoders are neural networks designed to learn efficient representations of input data, enabling the detection of anomalies by measuring reconstruction errors. This framework includes 3 baseline autoencoder algorithms (`Dense`, `Batch Norm` & `Ensemble`) for user application that allow the customization of each, including the network architecture, training epochs, activation layers and others.
 
 Furthermore, it's a main feature option for you to build your own autoencoder model (`Keras` based) and integrate it into the `SegmentAE` pipeline -> 
