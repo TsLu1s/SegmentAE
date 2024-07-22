@@ -10,6 +10,7 @@ from segmentae.metrics.performance_metrics import metrics_classification
 from segmentae.preprocessing.core import Preprocessing
 from segmentae.autoencoders.dense import DenseAutoencoder
 from segmentae.autoencoders.batch_norm import BatchNormAutoencoder
+from segmentae.autoencoders.ensemble import EnsembleAutoencoder
 from segmentae.clusters.clustering_ensembling import Clustering
 from typing import Optional
 
@@ -256,6 +257,7 @@ __all__ = [
     'metrics_classification',
     'DenseAutoencoder',
     'BatchNormAutoencoder',
+    'EnsembleAutoencoder',
     'Clustering',
     'Preprocessing'
 ]
