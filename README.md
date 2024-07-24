@@ -162,7 +162,7 @@ predictions = sg.detections(input_data = X_future_data,
 
 ## 👉 Optimizer
 
-`SegmentAE` utilizes a comprehensive optimization and evaluation methodology through its `SegmentAE_Optimization` pipeline to assess and enhance its anomaly detection capabilities. This approach incorporates product-based strategies designed for extensive experimental ensembles, aiming to systematically identify the optimal combination of various configurations, including:
+`SegmentAE` utilizes a comprehensive optimization and evaluation methodology through its `SegmentAE_Optimization` pipeline to assess and enhance its anomaly detection capabilities. This approach incorporates grid search optimization strategy designed for extensive experimental ensembles, aiming to systematically identify the optimal combination of various configurations, including:
 
 - Different autoencoders
 - Multiple clustering algorithms
