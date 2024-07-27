@@ -6,7 +6,7 @@ from typing import List, Union
 
 class SegmentAE_Optimizer:
     """
-    An optimization pipeline for conducting anomaly detection experiments using diverse autoencoder architectures
+    A Grid Search Optimization Pipeline for conducting anomaly detection experiments using diverse autoencoder architectures
     and clustering methodologies. This class facilitates the systematic exploration and rigorous evaluation
     of various combinations of autoencoders, clustering algorithms, and hyperparameters, aiming to identify
     the optimal configuration based on a specified performance metric.
