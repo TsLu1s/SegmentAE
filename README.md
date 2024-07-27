@@ -160,7 +160,7 @@ predictions = sg.detections(input_data = X_future_data,
 
 ```
 
-## 👉 Optimizer
+## 👉 Grid Search Optimizer
 
 `SegmentAE` utilizes a comprehensive optimization and evaluation methodology through its `SegmentAE_Optimization` pipeline to assess and enhance its anomaly detection capabilities. This approach incorporates grid search optimization strategy designed for extensive experimental ensembles, aiming to systematically identify the optimal combination of various configurations, including:
 
