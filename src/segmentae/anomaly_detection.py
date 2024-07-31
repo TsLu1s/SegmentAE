@@ -175,7 +175,10 @@ class SegmentAE:
                                                                         target_col = target_col,
                                                                         threshold_metric = self._threshold_metric)
         cmts, fgms, tests = {}, [], []
-        for cluster in range(0,len(self.reconstruction_eval)):
+        for cluster in self.reconstruction_eval.keys():
+          if cluster not in self.reconstruction_test:
+              print(f"Cluster {cluster} not found in Reconstruction")
+              continue
             
             rec_error = self.reconstruction_eval[cluster]["metrics"][self._threshold_metric]
             self.threshold = np.mean(rec_error)*threshold_ratio
@@ -234,7 +237,9 @@ class SegmentAE:
                             target_col = None,
                             threshold_metric = self._threshold_metric)
         
-        for cluster in range(0,len(self.reconstruction_eval)):
+        for cluster in self.reconstruction_eval.keys():
+          if cluster not in self.reconstruction_final:
+              continue
             rec_error = self.reconstruction_eval[cluster]["metrics"][self._threshold_metric]
             self.threshold = np.mean(rec_error)*threshold_ratio
 
