@@ -23,6 +23,7 @@ class Preprocessing:
         - scaler (str): The type of scaler to be used for numerical variables. Options include:
           - 'MinMaxScaler'
           - 'StandardScaler'
+          - 'RobustScaler'
           - None (default is 'MinMaxScaler')
         - imputer (str): The type of imputer to be used for handling missing values. Options include:
           - 'Simple'
@@ -49,7 +50,7 @@ class Preprocessing:
         self.imputer = None
         self.encoder = None
         self.scaler = None
-        self._X=None
+        self._X = None
         self.cat_cols: List[str] = []
         self.num_cols: List[str] = []
    
@@ -67,7 +68,8 @@ class Preprocessing:
             self.encoder = Simplifier.create_encoder(self._encoder)
             self.encoder.fit(X[self.cat_cols])
             self._X = self.encoder.transform(X).copy()
-        else: self._X = X
+        else: 
+            self._X = X
     
     def _setup_scaler(self):
         """
@@ -87,13 +89,18 @@ class Preprocessing:
 
         This method checks for missing values in the DataFrame and applies the specified imputation technique. The fitted imputer is stored in the `imputer` attribute.
         """
+        X_ = self._X
         if self._imputer is not None and self._X.isnull().sum().sum() > 0:
             self.imputer = Simplifier.create_imputer(self._imputer)
-            if self.imputer is not None:
-                if self._imputer=="Simple":
-                    self.imputer.fit(X=self._X)
-                elif self._imputer!="Simple":
-                    self.imputer.fit_imput(X=self._X)
+        
+        if self.imputer is not None:
+            # Transform numerical columns if a scaler and numerical columns are specified
+            if self.scaler is not None and self.num_cols:
+                X_[self.num_cols] = self.scaler.transform(X_[self.num_cols].copy())
+            
+            # Fit the imputer
+            fit_method = self.imputer.fit if self._imputer == "Simple" else self.imputer.fit_imput
+            fit_method(X=X_)
 
     def fit(self, X: pd.DataFrame) -> 'Preprocessing':
         """
@@ -139,8 +146,6 @@ class Preprocessing:
                 X_[self.num_cols] = self.imputer.transform(X=X_[self.num_cols].copy())
             elif self._imputer!="Simple":
                 X_[self.num_cols] = self.imputer.transform_imput(X=X_[self.num_cols].copy())
-
+                    
         return X_
-
-
         
