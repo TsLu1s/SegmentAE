@@ -1,3 +1,24 @@
+[![LinkedIn][linkedin-shield]][linkedin-url]
+[![Contributors][contributors-shield]][contributors-url]
+[![Stargazers][stars-shield]][stars-url]
+[![MIT License][license-shield]][license-url]
+[![Downloads][downloads-shield]][downloads-url]
+[![Month Downloads][downloads-month-shield]][downloads-month-url]
+
+[contributors-shield]: https://img.shields.io/github/contributors/TsLu1s/SegmentAE.svg?style=for-the-badge&logo=github&logoColor=white
+[contributors-url]: https://github.com/TsLu1s/SegmentAE/graphs/contributors
+[stars-shield]: https://img.shields.io/github/stars/TsLu1s/SegmentAE.svg?style=for-the-badge&logo=github&logoColor=white
+[stars-url]: https://github.com/TsLu1s/SegmentAE/stargazers
+[license-shield]: https://img.shields.io/github/license/TsLu1s/SegmentAE.svg?style=for-the-badge&logo=opensource&logoColor=white
+[license-url]: https://github.com/TsLu1s/SegmentAE/blob/main/LICENSE
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/luísfssantos/
+[downloads-shield]: https://static.pepy.tech/personalized-badge/segmentae?period=total&units=international_system&left_color=grey&right_color=blue&left_text=Total%20Downloads
+[downloads-url]: https://pepy.tech/project/segmentae
+[downloads-month-shield]: https://static.pepy.tech/personalized-badge/segmentae?period=month&units=international_system&left_color=grey&right_color=blue&left_text=Month%20Downloads
+[downloads-month-url]: https://pepy.tech/project/segmentae
+
+
 # SegmentAE: A Python Library for Anomaly Detection Optimization
 
 ## Framework Overview
